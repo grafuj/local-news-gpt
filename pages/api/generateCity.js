@@ -77,11 +77,10 @@ function generatePrompt(city) {
       description: "Boston's thriving tech industry continues to expand, offering exciting job opportunities in cutting-edge fields.",
     },
     
-    // One Story You Can Read More About
+    // One Story Under an image
     {
       title: "Historic Freedom Trail Reopens",
       description: "Discover the rich history of Boston as the iconic Freedom Trail reopens after extensive renovations. Learn more about the city's revolutionary past.",
-      link: "Read More",
     },
     
     // Three Main Stories to Appear on Tiles
