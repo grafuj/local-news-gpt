@@ -31,7 +31,9 @@ export default async function (req, res) {
       prompt: generatePrompt(city),
       temperature: 0.6,
     });
+
     res.status(200).json({ result: completion.data.choices[0].text });
+    // res.status(200).json({ result: completion.data.choices[0].text }); //removed [0].text to not only take the first array entry and convert it to text.
   } catch(error) {
     // Consider adjusting the error handling logic for your use case
     if (error.response) {
@@ -105,7 +107,7 @@ function generatePrompt(city) {
 // Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
 // Animal: Dog
 // Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-// Animal: ${capitalizedCity}
+// Animal: ${capitalizedAnimal}
 // Names:`;
 
 

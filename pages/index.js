@@ -23,6 +23,7 @@ export default function Home() {
       }
 
       setResult(data.result);
+      console.log("console log of data.result", data.result);
       setCityInput("");
     } catch(error) {
       // Consider implementing your own error handling logic here
@@ -51,7 +52,7 @@ export default function Home() {
           />
           <input type="submit" value="Generate city data" />
         </form>
-        <div className={styles.result}>{result}</div>
+        <div className={styles.result}>Here is the result:{result}</div>
       </main>
     </div>
   );
