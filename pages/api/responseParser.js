@@ -31,25 +31,38 @@ export const responseParser = (responseText) => {
     }
   }
   return parsedData;
-}
+};
 
-/* testing syntax
+// /* testing syntax
 // Example usage with the complete response text
+// const completeResponseText = `
+// 1. Four New Stories for Madrid:
+// a. Madrid's Annual Flamenco Festival: Experience the passion and rhythm of Spain's iconic dance form at Madrid's annual Flamenco Festival.
+// b. New Park Opens in the Heart of the City: Madrid welcomes a new urban park, providing a green oasis for residents and visitors to relax and enjoy nature.
+// c. Tech Innovation Drives Madrid's Economy: Learn how Madrid is becoming a hub for tech innovation, attracting startups and fostering entrepreneurship.
+// d. Royal Palace of Madrid: A Palace Fit for Royalty: Dive into the rich history and grandeur of the Royal Palace of Madrid, which has witnessed centuries of Spanish royalty.
+
+// 3. Three Main Stories to Appear on Tiles:
+// a. Culinary Delights of Madrid: Indulge in the diverse culinary scene of Madrid, from traditional tapas to innovative fusion cuisine.
+// b. Prado Museum: A Treasure Trove of Art: Explore the world-renowned Prado Museum, home to an impressive collection of European art masterpieces.
+// c. Retiro Park: Urban Retreat in Madrid: Discover the beauty of Retiro Park, a tranquil urban retreat in the heart of Madrid, perfect for picnics and relaxation.
+// `;
+
 const completeResponseText = `
-1. Four New Stories for Madrid:
-a. Madrid's Annual Flamenco Festival: Experience the passion and rhythm of Spain's iconic dance form at Madrid's annual Flamenco Festival.
-b. New Park Opens in the Heart of the City: Madrid welcomes a new urban park, providing a green oasis for residents and visitors to relax and enjoy nature.
-c. Tech Innovation Drives Madrid's Economy: Learn how Madrid is becoming a hub for tech innovation, attracting startups and fostering entrepreneurship.
-d. Royal Palace of Madrid: A Palace Fit for Royalty: Dive into the rich history and grandeur of the Royal Palace of Madrid, which has witnessed centuries of Spanish royalty.
+Four New Stories for Paris:
+a. Paris Fashion Week Unveils Latest Trends: Get ready to be mesmerized by the world of fashion as Paris Fashion Week showcases the latest haute couture creations.
+b. New Art Exhibition at the Louvre: Explore the artistic wonders of the Louvre Museum with a new and captivating exhibition that brings history to life.
+c. Parisian Cuisine at Its Finest: Savor the exquisite flavors of Paris with the opening of a Michelin-starred restaurant that promises a gastronomic journey.
+d. Celebrating Bastille Day in Style: Join the festive atmosphere as Parisians celebrate Bastille Day with fireworks, parades, and cultural events.
 
-3. Three Main Stories to Appear on Tiles:
-a. Culinary Delights of Madrid: Indulge in the diverse culinary scene of Madrid, from traditional tapas to innovative fusion cuisine.
-b. Prado Museum: A Treasure Trove of Art: Explore the world-renowned Prado Museum, home to an impressive collection of European art masterpieces.
-c. Retiro Park: Urban Retreat in Madrid: Discover the beauty of Retiro Park, a tranquil urban retreat in the heart of Madrid, perfect for picnics and relaxation.
+Three Main Stories to Appear on Tiles:
+a. Seine River Cruises: A Romantic Escape: Experience the romance of Paris by embarking on a scenic cruise along the Seine River, taking in the city's enchanting skyline.
+b. Parisian Arts and Culture: Immerse yourself in Paris's rich cultural scene, from world-class art galleries to captivating theatrical performances.
+c. Exploring Montmartre: The Bohemian Heart of Paris: Take a stroll through Montmartre, the charming and artistic neighborhood known for its vibrant history and picturesque streets.
 `;
-
 const parsedData = responseParser(completeResponseText);
 
 // 'parsedData' now contains an array of objects, each representing a title and its descriptions
 console.log(parsedData);
-*/
+
+// */
