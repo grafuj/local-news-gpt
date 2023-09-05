@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useState } from "react";
+import { responseParser } from "./api/responseParser";
 import styles from "./index.module.css";
 
 export default function Home() {
@@ -87,8 +88,8 @@ export default function Home() {
       if (response.status !== 200) {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
-      console.log("data.result:", data.result, "typeof data.result:", typeof data.result)
-      setResult(data.result);
+      // console.log("data.result:", data.result, "typeof data.result:", typeof data.result)
+      setResult(responseParser(data.result));
       setCityInput("");
     } catch(error) {
       // Consider implementing your own error handling logic here
@@ -101,13 +102,13 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>OpenAI Quickstart</title>
+        <title>Local News GPT</title>
         <link rel="icon" href="/dog.png" />
       </Head>
 
       <main className={styles.main}>
         <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
+        <h3>Enter a City</h3>
         <form onSubmit={onSubmit}>
           <input
             type="text"
@@ -116,7 +117,7 @@ export default function Home() {
             value={cityInput}
             onChange={(e) => setCityInput(e.target.value)}
           />
-          <input type="submit" value="Generate city data" />
+          <input type="submit" value="Generate" />
         </form>
         <div className={styles.result}>{result}</div>
       </main>

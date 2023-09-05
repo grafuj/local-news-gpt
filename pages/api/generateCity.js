@@ -57,7 +57,7 @@ function generatePrompt(city) {
   return `I'm looking to make a new homepage for a city. I've got a number of categories that I'm hoping to fill for content for the webpage.
   please generate the following content for the city of: ${capitalizedCity}
 
-  Since this is going to be placed into a webpage, I'm hoping you can place the result in a numbered list that is plain text (not code) and uses the form a, b, c  and a, b, c
+  Since this is going to be placed into a webpage, I'm hoping you can place the result in a numbered list that is plain text (not code) and uses the form a, b, c and a, b, c
 
   - four new stories
   - three main stories to appear on tiles
