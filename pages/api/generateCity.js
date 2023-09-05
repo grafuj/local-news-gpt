@@ -5,7 +5,7 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-export default async function (req, res) {
+export default async function(req, res) {
   if (!configuration.apiKey) {
     res.status(500).json({
       error: {
@@ -30,12 +30,13 @@ export default async function (req, res) {
       model: "text-davinci-003",
       prompt: generatePrompt(city),
       temperature: 0.6,
+      // max_tokens: 1024,
+      max_tokens: 100,
     });
 
     res.status(200).json({ result: completion.data.choices[0].text });
-    // res.status(200).json({ result: completion.data.choices[0].text }); //removed [0].text to not only take the first array entry and convert it to text.
-  } catch(error) {
-    // Consider adjusting the error handling logic for your use case
+    console.log("completion:", completion)
+  } catch (error) {
     if (error.response) {
       console.error(error.response.status, error.response.data);
       res.status(error.response.status).json(error.response.data);
@@ -56,59 +57,35 @@ function generatePrompt(city) {
   return `I'm looking to make a new homepage for a city. I've got a number of categories that I'm hoping to fill for content for the webpage.
   please generate the following content for the city of: ${capitalizedCity}
 
-  Since this is going to be placed into a webpage, I'm hoping you can place the result in an array of seven elements. This way, the elements can be accessed individually.
+  Since this is going to be placed into a webpage, I'm hoping you can place the result in a numbered list that is plain text (not code) and uses the form 1. a, b, c  and 2. a, b, c
 
   - three new stories
   - one story you can read more about
   - three main stories to appear on tiles
 
-  Here is an example for Boston:
+  Here is an example for Madrid:
 
-  const bostonHomepageContent = [
-    // Three New Stories
-    {
-      title: "Exciting Cultural Festival in Boston",
-      description: "Experience the vibrant culture of Boston with the upcoming cultural festival, featuring music, art, and delicious cuisine.",
-    },
-    {
-      title: "New Public Transportation System Unveiled",
-      description: "Boston introduces an efficient and eco-friendly public transportation system, making commuting easier for all residents.",
-    },
-    {
-      title: "Tech Hub Expansion Spurs Job Growth",
-      description: "Boston's thriving tech industry continues to expand, offering exciting job opportunities in cutting-edge fields.",
-    },
-    
-    // One Story Under an image
-    {
-      title: "Historic Freedom Trail Reopens",
-      description: "Discover the rich history of Boston as the iconic Freedom Trail reopens after extensive renovations. Learn more about the city's revolutionary past.",
-    },
-    
-    // Three Main Stories to Appear on Tiles
-    {
-      title: "Boston Harbor Revitalization Project",
-      description: "Explore the plans for the Boston Harbor revitalization project, creating a stunning waterfront destination for locals and tourists alike.",
-    },
-    {
-      title: "Boston's Culinary Delights",
-      description: "Indulge in Boston's diverse culinary scene, from seafood delights to international cuisine. Taste the flavors of the city.",
-    },
-    {
-      title: "Boston's Top Family-Friendly Attractions",
-      description: "Plan your family adventure in Boston with our guide to the city's top family-friendly attractions and activities.",
-    },
-  ];
+ 1. Three New Stories for Madrid:
+a. Madrid's Annual Flamenco Festival: Experience the passion and rhythm of Spain's iconic dance form at Madrid's annual Flamenco Festival.
+b. New Park Opens in the Heart of the City: Madrid welcomes a new urban park, providing a green oasis for residents and visitors to relax and enjoy nature.
+c. Tech Innovation Drives Madrid's Economy: Learn how Madrid is becoming a hub for tech innovation, attracting startups and fostering entrepreneurship.
+
+2. One Story You Can Read More About:
+a. Royal Palace of Madrid: A Palace Fit for Royalty: Dive into the rich history and grandeur of the Royal Palace of Madrid, which has witnessed centuries of Spanish royalty. [Read More]
+
+3. Three Main Stories to Appear on Tiles:
+a. Culinary Delights of Madrid: Indulge in the diverse culinary scene of Madrid, from traditional tapas to innovative fusion cuisine.
+b. Prado Museum: A Treasure Trove of Art: Explore the world-renowned Prado Museum, home to an impressive collection of European art masterpieces.
+c. Retiro Park: Urban Retreat in Madrid: Discover the beauty of Retiro Park, a tranquil urban retreat in the heart of Madrid, perfect for picnics and relaxation.
 `;
 
-//   return `Suggest three names for an animal that is a superhero.
+  //   return `Suggest three names for an animal that is a superhero.
 
-// Animal: Cat
-// Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-// Animal: Dog
-// Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-// Animal: ${capitalizedAnimal}
-// Names:`;
-
+  // Animal: Cat
+  // Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
+  // Animal: Dog
+  // Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
+  // Animal: ${capitalizedAnimal}
+  // Names:`;
 
 }
