@@ -1,4 +1,4 @@
-function responseParser(responseText) {
+export const responseParser = (responseText) => {
   // Split the response into an array of lines
   const lines = responseText.split('\n');
 
@@ -33,6 +33,7 @@ function responseParser(responseText) {
   return parsedData;
 }
 
+/* testing syntax
 // Example usage with the complete response text
 const completeResponseText = `
 1. Four New Stories for Madrid:
@@ -51,3 +52,4 @@ const parsedData = responseParser(completeResponseText);
 
 // 'parsedData' now contains an array of objects, each representing a title and its descriptions
 console.log(parsedData);
+*/

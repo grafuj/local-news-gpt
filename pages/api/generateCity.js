@@ -59,8 +59,7 @@ function generatePrompt(city) {
 
   Since this is going to be placed into a webpage, I'm hoping you can place the result in a numbered list that is plain text (not code) and uses the form 1. a, b, c  and 2. a, b, c
 
-  - three new stories
-  - one story you can read more about
+  - four new stories
   - three main stories to appear on tiles
 
   Here is an example for Madrid:
