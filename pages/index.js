@@ -29,42 +29,16 @@ export default function Home() {
       // Navigate to the new page with the result as a query parameter
       // router.push(`/cityResult?result=${encodeURIComponent(parsedResult)}`);
       router.push({
-        pathname: '/cityResult', //add in `/${cityInput}` if it works lol
+        pathname: '/CityResult', //add in `/${cityInput}` if it works lol
         query: { result: JSON.stringify(parsedResult) }
       });
-      
+
     } catch (error) {
       // Consider implementing your own error handling logic here
       console.error(error);
       alert(error.message);
     }
   }
-
-
-  // async function onSubmit(event) {
-  //   event.preventDefault();
-  //   try {
-  //     const response = await fetch("/api/generateCity", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({ city: cityInput }),
-  //     });
-
-  //     const data = await response.json();
-  //     if (response.status !== 200) {
-  //       throw data.error || new Error(`Request failed with status ${response.status}`);
-  //     }
-  //     // console.log("data.result:", data.result, "typeof data.result:", typeof data.result)
-  //     setResult(responseParser(data.result));
-  //     setCityInput("");
-  //   } catch (error) {
-  //     // Consider implementing your own error handling logic here
-  //     console.error(error);
-  //     alert(error.message);
-  //   }
-  // }
 
   return (
     <div>
