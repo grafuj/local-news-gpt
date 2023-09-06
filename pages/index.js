@@ -2,7 +2,11 @@ import Head from "next/head";
 import { useState } from "react";
 import { responseParser } from "./api/responseParser";
 import { useRouter } from "next/router";
+import { Link } from "react-router-dom";
+
 import styles from "./index.module.css";
+import CityResult from "./CityResult";
+import { LocalNewsPage } from "./LocalNewsPage";
 
 export default function Home() {
   const [cityInput, setCityInput] = useState("");
@@ -28,10 +32,6 @@ export default function Home() {
       const parsedResult = responseParser(data.result);
       // Navigate to the new page with the result as a query parameter
       // router.push(`/cityResult?result=${encodeURIComponent(parsedResult)}`);
-      router.push({
-        pathname: '/CityResult', //add in `/${cityInput}` if it works lol
-        query: { result: JSON.stringify(parsedResult) }
-      });
 
     } catch (error) {
       // Consider implementing your own error handling logic here
@@ -58,9 +58,11 @@ export default function Home() {
             value={cityInput}
             onChange={(e) => setCityInput(e.target.value)}
           />
+          <Link to="/CityResult" state={parsedResult}>
           <input type="submit" value="Generate" />
+          </Link>
         </form>
-        <div className={styles.result}>{result}</div>
+        <div className={styles.result}>test result</div>
       </main>
     </div>
   );
