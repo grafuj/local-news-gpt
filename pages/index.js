@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useState } from "react";
 import { responseParser } from "./api/responseParser";
 import { useRouter } from "next/router";
-import { Link } from "react-router-dom";
+import { Link, BrowserRouter, Route } from "react-router-dom";
 
 import styles from "./index.module.css";
 import CityResult from "./CityResult";
@@ -12,7 +12,7 @@ export default function Home() {
   const [cityInput, setCityInput] = useState("");
   const [result, setResult] = useState();
 
-  const router = useRouter();
+  // const router = useRouter();
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -29,7 +29,7 @@ export default function Home() {
       if (response.status !== 200) {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
-      const parsedResult = responseParser(data.result);
+      setResult(responseParser(data.result));
       // Navigate to the new page with the result as a query parameter
       // router.push(`/cityResult?result=${encodeURIComponent(parsedResult)}`);
 
@@ -47,6 +47,13 @@ export default function Home() {
         <link rel="icon" href="/dog.png" />
       </Head>
 
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={} />
+          <Route path="/News" element={<LocalNewsPage content={result} />} />
+        </Routes>
+
+      </BrowserRouter>
       <main className={styles.main}>
         <img src="/dog.png" className={styles.icon} />
         <h3>Enter a City</h3>
@@ -58,7 +65,7 @@ export default function Home() {
             value={cityInput}
             onChange={(e) => setCityInput(e.target.value)}
           />
-          <Link to="/CityResult" state={parsedResult}>
+          <Link to="/News" state={result}>
           <input type="submit" value="Generate" />
           </Link>
         </form>
