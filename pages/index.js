@@ -1,10 +1,12 @@
 import Head from "next/head";
 import { useState } from "react";
 import { responseParser } from "./api/responseParser";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { LocalNewsPage } from "./LocalNewsPage";
 import { Lobby } from "./Lobby";
+import styles from "./index.module.css";
+
 
 export default function Home() {
   const [cityInput, setCityInput] = useState("");
