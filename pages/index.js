@@ -1,12 +1,10 @@
 import Head from "next/head";
 import { useState } from "react";
 import { responseParser } from "./api/responseParser";
-import { useRouter } from "next/router";
-import { Link, BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 
-import styles from "./index.module.css";
-import CityResult from "./CityResult";
 import { LocalNewsPage } from "./LocalNewsPage";
+import { Lobby } from "./Lobby";
 
 export default function Home() {
   const [cityInput, setCityInput] = useState("");
@@ -49,28 +47,10 @@ export default function Home() {
 
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={} />
+          <Route path="/" element={<Lobby />} />
           <Route path="/News" element={<LocalNewsPage content={result} />} />
         </Routes>
-
       </BrowserRouter>
-      <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
-        <h3>Enter a City</h3>
-        <form onSubmit={onSubmit}>
-          <input
-            type="text"
-            name="city"
-            placeholder="Enter a city"
-            value={cityInput}
-            onChange={(e) => setCityInput(e.target.value)}
-          />
-          <Link to="/News" state={result}>
-          <input type="submit" value="Generate" />
-          </Link>
-        </form>
-        <div className={styles.result}>test result</div>
-      </main>
     </div>
   );
 }

@@ -9,7 +9,6 @@ export const LocalNewsPage = (props) => {
       <Head>
         <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
         <link href="style.css" rel="stylesheet" />
-        <title>Frontend Mentor | News homepage</title>
       </Head>
       <body>
 
