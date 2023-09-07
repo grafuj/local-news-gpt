@@ -1,5 +1,7 @@
 import React from "react"; // Import React
 import Head from "next/head"; // Import Next.js's Head component
+import styles from "./index.module.css";
+
 
 export const LocalNewsPage = (props) => {
   const { result } = props;

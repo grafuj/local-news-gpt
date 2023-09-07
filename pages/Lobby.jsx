@@ -1,10 +1,35 @@
-import React from "react"; // Import React
-// import { Link } from "react-router-dom";
-import styles from "./index.module.css";
+import React, { useState } from "react";
 import Link from 'next/link';
+import styles from "./index.module.css";
+import { useRouter } from "next/router";
 
 export const Lobby = (props) => {
-  const { result } = props;
+  const { result, setResult } = props;
+  const [cityInput, setCityInput] = useState(""); // Declare cityInput state
+  const router = useRouter();
+
+  async function onSubmit(event) {
+    event.preventDefault();
+    try {
+      const response = await fetch("/api/generateCity", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ city: cityInput }),
+      });
+
+      const data = await response.json();
+      if (response.status !== 200) {
+        throw data.error || new Error(`Request failed with status ${response.status}`);
+      }
+      setResult(responseParser(data.result));
+      router.push("/News");
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+    }
+  }
 
   return (
     <main className={styles.main}>
@@ -19,11 +44,10 @@ export const Lobby = (props) => {
           onChange={(e) => setCityInput(e.target.value)}
         />
         <Link href="/News">
-          <input type="submit" value="Generate" />
+          <button type="submit">Generate</button>
         </Link>
       </form>
       <div className={styles.result}>test result</div>
     </main>
   );
-
 };
