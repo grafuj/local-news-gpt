@@ -5,7 +5,8 @@ import { useRouter } from "next/router";
 
 import { LocalNewsPage } from "./LocalNewsPage";
 import { Lobby } from "./Lobby";
-import styles from "./index.module.css";
+import "./index.module.css";
+import News from "./[news]";
 
 export default function Home() {
   const [result, setResult] = useState();
@@ -14,7 +15,7 @@ export default function Home() {
 
   let pageComponent;
   if (query.page === "News") {
-    pageComponent = <LocalNewsPage result={result} />;
+    pageComponent = <News result={result} />;
   } else {
     pageComponent = <Lobby result={result} setResult={setResult} />;
   }
