@@ -1,5 +1,6 @@
 import React from "react"; // Import React
 import Head from "next/head"; // Import Next.js's Head component
+import "./LocalNewsPage.css"
 
 export const LocalNewsPage = (props) => {
   // console.log("props:", props);

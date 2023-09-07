@@ -1,5 +1,6 @@
 import React from "react"; // Import React
 import { Link } from "react-router-dom";
+import styles from "./index.module.css";
 
 export const Lobby = (props) => {
 

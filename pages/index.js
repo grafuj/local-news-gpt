@@ -2,6 +2,8 @@ import Head from "next/head";
 import { useState } from "react";
 import { responseParser } from "./api/responseParser";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Link from 'next/link';
+
 
 import { LocalNewsPage } from "./LocalNewsPage";
 import { Lobby } from "./Lobby";
