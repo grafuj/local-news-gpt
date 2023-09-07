@@ -10,6 +10,7 @@ import { Lobby } from "./Lobby";
 import styles from "./index.module.css";
 
 
+
 export default function Home() {
   const [cityInput, setCityInput] = useState("");
   const [result, setResult] = useState();
@@ -51,8 +52,8 @@ export default function Home() {
 
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Lobby />} />
-          <Route path="/News" element={<LocalNewsPage content={result} />} />
+          <Route path="/" element={<Lobby result={result} />} />
+          <Route path="/News" element={<LocalNewsPage result={result} />} />
         </Routes>
       </BrowserRouter>
     </div>

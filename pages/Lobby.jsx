@@ -1,8 +1,10 @@
 import React from "react"; // Import React
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import styles from "./index.module.css";
+import Link from 'next/link';
 
 export const Lobby = (props) => {
+  const { result } = props;
 
   return (
     <main className={styles.main}>
@@ -16,7 +18,7 @@ export const Lobby = (props) => {
           value={cityInput}
           onChange={(e) => setCityInput(e.target.value)}
         />
-        <Link to="/News" state={result}>
+        <Link href="/News">
           <input type="submit" value="Generate" />
         </Link>
       </form>
