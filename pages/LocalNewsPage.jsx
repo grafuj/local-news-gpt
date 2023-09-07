@@ -10,9 +10,8 @@ export const LocalNewsPage = (props) => {
     <>
       <Head>
         <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
-        <link href="style.css" rel="stylesheet" />
       </Head>
-      <body>
+      <>
         <div className="parent-div">
           <div className="nav">
             <div className="title">
@@ -121,7 +120,7 @@ export const LocalNewsPage = (props) => {
             Code by <a href="https://github.com/grafuj/news-homepage">grafuj</a>.
           </div>
         </div>
-      </body>
+      </>
     </>
   );
 };
