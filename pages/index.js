@@ -9,15 +9,17 @@ import "./index.module.css";
 import News from "./[news]";
 
 export default function Home() {
+  const [cityInput, setCityInput] = useState("");
   const [result, setResult] = useState();
+
   const router = useRouter();
   const { query } = router;
 
   let pageComponent;
   if (query.page === "News") {
-    pageComponent = <News result={result} />;
+    pageComponent = <News cityInput={cityInput} result={result} />;
   } else {
-    pageComponent = <Lobby result={result} setResult={setResult} />;
+    pageComponent = <Lobby cityInput={cityInput} setCityInput={setCityInput} result={result} setResult={setResult} />;
   }
 
   return (

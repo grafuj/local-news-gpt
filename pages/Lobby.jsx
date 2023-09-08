@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 
 export const Lobby = (props) => {
   const { result, setResult } = props;
-  const [cityInput, setCityInput] = useState(""); // Declare cityInput state
   const router = useRouter();
 
   async function onSubmit(event) {

@@ -3,7 +3,7 @@ import Head from "next/head"; // Import Next.js's Head component
 import styles from "./index.module.css";
 
 export const LocalNewsPage = (props) => {
-  const { result } = props;
+  const { cityInput, result } = props;
 
   return (
     <>
@@ -14,7 +14,7 @@ export const LocalNewsPage = (props) => {
         <div className={styles["parent-div"]}>
           <div className={styles.nav}>
             <div className={styles.title}>
-              Aurosbordshire
+              Aurosbordshire {cityInput}
             </div>
             <div className={styles["nav-element-container"]}>
               <div className={styles["nav-element"]}>
