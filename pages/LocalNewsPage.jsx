@@ -14,7 +14,11 @@ export const LocalNewsPage = (props) => {
         <div className={styles["parent-div"]}>
           <div className={styles.nav}>
             <div className={styles.title}>
-              Aurosbordshire {cityInput}
+              {cityInput ? (
+                cityInput
+              ) : (
+                <a>Loading...</a> // Show a loading indicator until the data is available
+              )}
             </div>
             <div className={styles["nav-element-container"]}>
               <div className={styles["nav-element"]}>
@@ -50,7 +54,7 @@ export const LocalNewsPage = (props) => {
                     We dive into the next evolution of the web that claims
                     to put the power of the platforms back into the hands
                     of the people. But is it really fulfilling its promise?
-                    {result && result[3]}
+                    {result && result[3].description}
                   </div>
 
                   <button className={styles["read-more-button"]}>READ MORE</button>
@@ -64,7 +68,7 @@ export const LocalNewsPage = (props) => {
               </div>
 
               <div className={styles["new-item"]}>
-                <h3 className={styles["bold-titles"]}> Hydrogen VS Electric Cars </h3>
+                <h3 className={styles["bold-titles"]}>{result && result[0].title}</h3>
                 <p> Will hydrogen-fueled cars ever catch up to EVs? </p>
               </div>
 

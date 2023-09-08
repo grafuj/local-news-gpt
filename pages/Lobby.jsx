@@ -23,6 +23,7 @@ export const Lobby = (props) => {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
       setResult(responseParser(data.result));
+      console.log("result:", result)
       router.push("/News");
     } catch (error) {
       console.error(error);
