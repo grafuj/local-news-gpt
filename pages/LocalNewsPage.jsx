@@ -38,8 +38,7 @@ export const LocalNewsPage = (props) => {
           <div className={styles["image-container"]}>
             <div className={styles["image-with-subtext"]}>
               <div className={styles["blocks-image"]}>
-                <img src="./assets/images/blocks.jpg" alt="Colourful Blocks" className={styles["limit-img-width"]} />
-                <img src="." alt="Colourful Blocks" className={styles["limit-img-width"]} />
+                <img src="assets/images/blocks.jpg" alt="Colourful Blocks" className={styles["limit-img-width"]} />
               </div>
 
               <div className={styles["image-subtext"]}>
