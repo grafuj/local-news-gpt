@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Link from 'next/link';
 import styles from "./index.module.css";
 import { useRouter } from "next/router";
+import { responseParser } from "./api/responseParser";
 
 export const Lobby = (props) => {
   const { cityInput, setCityInput, result, setResult } = props;
@@ -23,8 +24,8 @@ export const Lobby = (props) => {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
       setResult(responseParser(data.result));
-      console.log("result:", result)
-      router.push("/News");
+      console.log("27result:", result)
+      // router.push("/News");
     } catch (error) {
       console.error(error);
       alert(error.message);
@@ -47,7 +48,8 @@ export const Lobby = (props) => {
           <button type="submit">Generate</button>
         </Link>
       </form>
-      <div className={styles.result}>test result</div>
+      <div className={styles.result}>{result && result[0].title}</div>
+      <div className={styles.result}>{result && result[0].descriptions}</div>
     </main>
   );
 };

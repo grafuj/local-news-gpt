@@ -4,6 +4,7 @@ import styles from "./index.module.css";
 
 export const LocalNewsPage = (props) => {
   const { cityInput, result } = props;
+  console.log("7 LocalNewsPage: city, res", cityInput, result);
 
   return (
     <>
@@ -15,7 +16,7 @@ export const LocalNewsPage = (props) => {
           <div className={styles.nav}>
             <div className={styles.title}>
               {cityInput ? (
-                cityInput
+                { cityInput }
               ) : (
                 <a>Loading...</a> // Show a loading indicator until the data is available
               )}

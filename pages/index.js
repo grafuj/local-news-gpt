@@ -29,6 +29,8 @@ export default function Home() {
         <link rel="icon" href="/dog.png" />
       </Head>
       {pageComponent}
+      result
+      {result && result[0].title}
     </div>
   );
 }

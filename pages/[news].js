@@ -4,6 +4,8 @@ import { LocalNewsPage } from "./LocalNewsPage";
 export default function News(props) {
   const { cityInput, result } = props;
   const [isLoading, setIsLoading] = useState(true);
+  console.log("7 [news]: city, res", cityInput, result);
+
 
   useEffect(() => {
     // Simulate a 150ms delay
@@ -23,7 +25,9 @@ export default function News(props) {
         <p>Loading...</p> // You can replace this with a loading spinner or component
       ) : (
         <LocalNewsPage cityInput={cityInput} result={result} />
-      )}
+        )}
+        <div>{result && result[0].title}</div>
+        <div>{result && result[0].descriptions}</div>
     </div>
   );
 }

@@ -30,6 +30,7 @@ export const responseParser = (responseText) => {
       });
     }
   }
+  console.log("33parsedData:", parsedData)
   return parsedData;
 };
 
