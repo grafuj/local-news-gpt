@@ -4,7 +4,7 @@ import styles from "./index.module.css";
 import { useRouter } from "next/router";
 
 export const Lobby = (props) => {
-  const { result, setResult } = props;
+  const { cityInput, setCityInput, result, setResult } = props;
   const router = useRouter();
 
   async function onSubmit(event) {
