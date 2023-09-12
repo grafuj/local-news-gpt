@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { createContext, useContext, useState } from "react";
+import { useState } from "react";
 import { responseParser } from "./api/responseParser";
 import { useRouter } from "next/router";
 

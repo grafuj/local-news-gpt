@@ -25,16 +25,13 @@ export const Lobby = (props) => {
       }
       console.log("data26:", data);
       console.log("parsed data27:", responseParser(data.result));
-      setResult(responseParser(data.result), {
-        
-      });
-      console.log("result29:", result);
-
-      useEffect(() => {
-        console.log('42 useEffect result', result);
-      }, [result]);
-
-
+      setResult(responseParser(data.result));
+      
+      setTimeout(() => {
+        // setResult(responseParser(data.result));
+        router.push('/News')
+        console.log("result33:", result);
+      }, 1500);
 
       // router.push("/News");
     } catch (error) {
@@ -57,9 +54,9 @@ export const Lobby = (props) => {
           value={cityInput}
           onChange={(e) => setCityInput(e.target.value)}
         />
-        <Link href="/News">
+        {/* <Link href="/News"> */}
           <button type="submit">Generate</button>
-        </Link>
+        {/* </Link> */}
       </form>
       {/* <div className={styles.result}>lobby 51{result && result[0].title}</div> */}
       {/* <div className={styles.result}>{result && result[0].descriptions}</div> */}
