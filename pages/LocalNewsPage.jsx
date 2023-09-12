@@ -3,8 +3,9 @@ import Head from "next/head"; // Import Next.js's Head component
 import styles from "./index.module.css";
 
 export const LocalNewsPage = (props) => {
-  const { cityInput, result } = props;
-  console.log("7 LocalNewsPage: city, res", cityInput, result);
+  const { LNPCityInput, LNPResult } = props;
+  console.log("7 LocalNewsPage: city, res", LNPCityInput, LNPResult);
+  // <LocalNewsPage LNPCityInput={newsCityInput} LNPResult={newsResult} />
 
   return (
     <>
@@ -15,8 +16,8 @@ export const LocalNewsPage = (props) => {
         <div className={styles["parent-div"]}>
           <div className={styles.nav}>
             <div className={styles.title}>
-              {cityInput ? (
-                { cityInput }
+              {LNPCityInput ? (
+                { LNPCityInput }
               ) : (
                 <a>Loading...</a> // Show a loading indicator until the data is available
               )}
@@ -55,7 +56,7 @@ export const LocalNewsPage = (props) => {
                     We dive into the next evolution of the web that claims
                     to put the power of the platforms back into the hands
                     of the people. But is it really fulfilling its promise?
-                    {result && result[3].description}
+                    {LNPResult && LNPResult[0].description}
                   </div>
 
                   <button className={styles["read-more-button"]}>READ MORE</button>
@@ -69,7 +70,7 @@ export const LocalNewsPage = (props) => {
               </div>
 
               <div className={styles["new-item"]}>
-                <h3 className={styles["bold-titles"]}>{result && result[0].title}</h3>
+                <h3 className={styles["bold-titles"]}>{LNPResult && LNPResult[0].title}</h3>
                 <p> Will hydrogen-fueled cars ever catch up to EVs? </p>
               </div>
 

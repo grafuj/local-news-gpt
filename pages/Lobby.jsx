@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from 'next/link';
 import styles from "./index.module.css";
 import { useRouter } from "next/router";
@@ -23,14 +23,27 @@ export const Lobby = (props) => {
       if (response.status !== 200) {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
-      setResult(responseParser(data.result));
-      console.log("27result:", result)
+      console.log("data26:", data);
+      console.log("parsed data27:", responseParser(data.result));
+      setResult(responseParser(data.result), {
+        
+      });
+      console.log("result29:", result);
+
+      useEffect(() => {
+        console.log('42 useEffect result', result);
+      }, [result]);
+
+
+
       // router.push("/News");
     } catch (error) {
       console.error(error);
       alert(error.message);
     }
   }
+
+
 
   return (
     <main className={styles.main}>
@@ -48,8 +61,8 @@ export const Lobby = (props) => {
           <button type="submit">Generate</button>
         </Link>
       </form>
-      <div className={styles.result}>{result && result[0].title}</div>
-      <div className={styles.result}>{result && result[0].descriptions}</div>
+      {/* <div className={styles.result}>lobby 51{result && result[0].title}</div> */}
+      {/* <div className={styles.result}>{result && result[0].descriptions}</div> */}
     </main>
   );
 };

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { responseParser } from "./api/responseParser";
 import { useRouter } from "next/router";
 
@@ -17,7 +17,7 @@ export default function Home() {
 
   let pageComponent;
   if (query.page === "News") {
-    pageComponent = <News cityInput={cityInput} result={result} />;
+    pageComponent = <News newsCityInput={cityInput} newsResult={result} />;
   } else {
     pageComponent = <Lobby cityInput={cityInput} setCityInput={setCityInput} result={result} setResult={setResult} />;
   }
@@ -29,8 +29,8 @@ export default function Home() {
         <link rel="icon" href="/dog.png" />
       </Head>
       {pageComponent}
-      result
-      {result && result[0].title}
+      result at index.js 32
+      {/* {result && result[0].title} */}
     </div>
   );
 }
