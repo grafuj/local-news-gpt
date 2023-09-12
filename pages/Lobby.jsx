@@ -23,16 +23,16 @@ export const Lobby = (props) => {
       if (response.status !== 200) {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
-      console.log("data26:", data);
-      console.log("parsed data27:", responseParser(data.result));
-      setResult(responseParser(data.result));
+      console.log("data26:", data); //data is there
+      console.log("parsed data27:", responseParser(data.result)); //data is correctly parsed
+      setResult(responseParser(data.result)); // this line doesn't work
 
       console.log("result30:", result);
       
-      setTimeout(() => {
+      setTimeout(() => {  //this is an attempt at delaying setResult so that it eventually gets set or to find out if a later console.log is different
         // setResult(responseParser(data.result));
         console.log("result35:", result);
-        router.push('/News')
+        router.push('/News') //checking if staying on the page for longer fixes the problem
       }, 1500);
 
       // router.push("/News");
