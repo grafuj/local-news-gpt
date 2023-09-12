@@ -26,11 +26,13 @@ export const Lobby = (props) => {
       console.log("data26:", data);
       console.log("parsed data27:", responseParser(data.result));
       setResult(responseParser(data.result));
+
+      console.log("result30:", result);
       
       setTimeout(() => {
         // setResult(responseParser(data.result));
+        console.log("result35:", result);
         router.push('/News')
-        console.log("result33:", result);
       }, 1500);
 
       // router.push("/News");
