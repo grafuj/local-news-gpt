@@ -29,7 +29,7 @@ export default async function(req, res) {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: generatePrompt(city),
-      temperature: 0.6,
+      temperature: 0.4,
       // max_tokens: 1024,
       max_tokens: 15,
     });
@@ -54,21 +54,17 @@ export default async function(req, res) {
 function generatePrompt(city) {
   const capitalizedCity =
     city[0].toUpperCase() + city.slice(1).toLowerCase();
-  return `I'm looking to make a new homepage for a city. I've got a number of categories that I'm hoping to fill for content for the webpage.
-  please generate the following content for the city of: ${capitalizedCity}
+  return `I'm looking to make a new homepage for local news for a city. Please make some stories about ${capitalizedCity}
 
-  Please make the content in this exact format:
+  Please make the content in this exact format but make it about ${capitalizedCity}:
   
-  Four New Stories for Paris:
   a. Paris Fashion Week Unveils Latest Trends: Get ready to be mesmerized by the world of fashion as Paris Fashion Week showcases the latest haute couture creations.
   b. New Art Exhibition at the Louvre: Explore the artistic wonders of the Louvre Museum with a new and captivating exhibition that brings history to life.
   c. Parisian Cuisine at Its Finest: Savor the exquisite flavors of Paris with the opening of a Michelin-starred restaurant that promises a gastronomic journey.
   d. Celebrating Bastille Day in Style: Join the festive atmosphere as Parisians celebrate Bastille Day with fireworks, parades, and cultural events.
-  
-  Three Main Stories to Appear on Tiles:
-  a. Seine River Cruises: A Romantic Escape: Experience the romance of Paris by embarking on a scenic cruise along the Seine River, taking in the city's enchanting skyline.
-  b. Parisian Arts and Culture: Immerse yourself in Paris's rich cultural scene, from world-class art galleries to captivating theatrical performances.
-  c. Exploring Montmartre: The Bohemian Heart of Paris: Take a stroll through Montmartre, the charming and artistic neighborhood known for its vibrant history and picturesque streets.
+  e. Seine River Cruises: A Romantic Escape: Experience the romance of Paris by embarking on a scenic cruise along the Seine River, taking in the city's enchanting skyline.
+  f. Parisian Arts and Culture: Immerse yourself in Paris's rich cultural scene, from world-class art galleries to captivating theatrical performances.
+  g. Exploring Montmartre: The Bohemian Heart of Paris: Take a stroll through Montmartre, the charming and artistic neighborhood known for its vibrant history and picturesque streets.
   `;
 
 

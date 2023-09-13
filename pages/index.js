@@ -29,7 +29,6 @@ export default function Home() {
         <link rel="icon" href="/dog.png" />
       </Head>
       {pageComponent}
-      result at index.js 32
       {/* {result && result[0].title} */}
     </div>
   );

@@ -1,8 +1,8 @@
-const responseParser = (responseText) => {
-// export const responseParser = (responseText) => {
+// const responseParser = (responseText) => { // can't export when testing, swap this line with line 2 to test locally
+export const responseParser = (responseText) => {
   // Split the response into an array of lines
   const lines = responseText.split('\n');
-
+  console.log("lines:", lines)
   // Initialize an array to store the parsed data
   const parsedData = [];
 
@@ -15,7 +15,13 @@ const responseParser = (responseText) => {
     let currentTitle = "";
     let currentDescription = "";
 
-    if (lineTitle.trim().startsWith('a. ') || lineTitle.trim().startsWith('b. ') || lineTitle.trim().startsWith('c. ') || lineTitle.trim().startsWith('d. ')) {
+    if (lineTitle.trim().startsWith('a. ') ||
+        lineTitle.trim().startsWith('b. ') ||
+        lineTitle.trim().startsWith('c. ') ||
+        lineTitle.trim().startsWith('d. ') ||
+        lineTitle.trim().startsWith('e. ') ||
+        lineTitle.trim().startsWith('f. ') ||
+        lineTitle.trim().startsWith('g. ')) {
       currentTitle = lineTitle.trim().substring(3); // Remove the bullet point (e.g., "a. ")
     }
 
@@ -31,11 +37,11 @@ const responseParser = (responseText) => {
       });
     }
   }
-  // console.log("33parsedData:", parsedData)
+  console.log("33parsedData:", parsedData)
   return parsedData;
 };
 
-// /* testing syntax
+/* testing syntax
 // Example usage with the complete response text
 
 const completeResponseText = `
@@ -51,22 +57,18 @@ b. Parisian Arts and Culture: Immerse yourself in Paris's rich cultural scene, f
 c. Exploring Montmartre: The Bohemian Heart of Paris: Take a stroll through Montmartre, the charming and artistic neighborhood known for its vibrant history and picturesque streets.
 `;
 
-const updateResponseText = `
-Four New Stories for Madrid:
-a. Madrid Flamenco Festival: Get ready to be swept away by the passion and rhythm of Flamenco at the annual Madrid Flamenco Festival, where talented dancers and musicians showcase this iconic Spanish art form.
-b. Prado Museum's Latest Masterpieces: Explore the timeless beauty of art at the Prado Museum with a new exhibition featuring masterpieces that span centuries of artistic excellence.
-c. Culinary Delights at Madrid's Mercado de San Miguel: Indulge your taste buds in Madrid's culinary scene at the renowned Mercado de San Miguel, where a variety of Spanish delicacies await to tantalize your palate.
-d. Fiesta de San Isidro: Join the lively celebrations as Madrileños honor their patron saint, San Isidro, with a colorful festival featuring music, dancing, and traditional Spanish festivities.
-
-Three Main Stories to Appear on Tiles:
-a. Retiro Park: A Tranquil Oasis in the Heart of Madrid: Escape the bustling city and relax in the serene surroundings of Retiro Park, where you can row a boat on the lake or enjoy a leisurely stroll amid lush greenery.
-b. Madrid's Cultural Extravaganza: Immerse yourself in Madrid's vibrant cultural scene, from world-class art museums like the Reina Sofia to captivating theater performances at Teatro Real.
-c. Exploring La Latina: The Historic Heart of Madrid: Take a walk through La Latina, Madrid's historic neighborhood known for its charming streets, tapas bars, and cultural heritage.
+const completeResponseText2 = `
+  a. Paris Fashion Week Unveils Latest Trends: Get ready to be mesmerized by the world of fashion as Paris Fashion Week showcases the latest haute couture creations.
+  b. New Art Exhibition at the Louvre: Explore the artistic wonders of the Louvre Museum with a new and captivating exhibition that brings history to life.
+  c. Parisian Cuisine at Its Finest: Savor the exquisite flavors of Paris with the opening of a Michelin-starred restaurant that promises a gastronomic journey.
+  d. Celebrating Bastille Day in Style: Join the festive atmosphere as Parisians celebrate Bastille Day with fireworks, parades, and cultural events.
+  e. Seine River Cruises: A Romantic Escape: Experience the romance of Paris by embarking on a scenic cruise along the Seine River, taking in the city's enchanting skyline.
+  f. Parisian Arts and Culture: Immerse yourself in Paris's rich cultural scene, from world-class art galleries to captivating theatrical performances.
+  g. Exploring Montmartre: The Bohemian Heart of Paris: Take a stroll through Montmartre, the charming and artistic neighborhood known for its vibrant history and picturesque streets.
 `
-
-const parsedData = responseParser(updateResponseText);
+const parsedData = responseParser(completeResponseText2);
 
 // 'parsedData' now contains an array of objects, each representing a title and its descriptions
 console.log(parsedData);
 
-// */
+*/
