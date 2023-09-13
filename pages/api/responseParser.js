@@ -1,4 +1,5 @@
-export const responseParser = (responseText) => {
+const responseParser = (responseText) => {
+// export const responseParser = (responseText) => {
   // Split the response into an array of lines
   const lines = responseText.split('\n');
 
@@ -26,7 +27,7 @@ export const responseParser = (responseText) => {
     if (currentTitle.length > 0 && currentDescription.length > 0) {
       parsedData.push({
         title: currentTitle,
-        descriptions: currentDescription,
+        description: currentDescription,
       });
     }
   }
@@ -34,7 +35,7 @@ export const responseParser = (responseText) => {
   return parsedData;
 };
 
-/* testing syntax
+// /* testing syntax
 // Example usage with the complete response text
 
 const completeResponseText = `
@@ -49,9 +50,23 @@ a. Seine River Cruises: A Romantic Escape: Experience the romance of Paris by em
 b. Parisian Arts and Culture: Immerse yourself in Paris's rich cultural scene, from world-class art galleries to captivating theatrical performances.
 c. Exploring Montmartre: The Bohemian Heart of Paris: Take a stroll through Montmartre, the charming and artistic neighborhood known for its vibrant history and picturesque streets.
 `;
-const parsedData = responseParser(completeResponseText);
+
+const updateResponseText = `
+Four New Stories for Madrid:
+a. Madrid Flamenco Festival: Get ready to be swept away by the passion and rhythm of Flamenco at the annual Madrid Flamenco Festival, where talented dancers and musicians showcase this iconic Spanish art form.
+b. Prado Museum's Latest Masterpieces: Explore the timeless beauty of art at the Prado Museum with a new exhibition featuring masterpieces that span centuries of artistic excellence.
+c. Culinary Delights at Madrid's Mercado de San Miguel: Indulge your taste buds in Madrid's culinary scene at the renowned Mercado de San Miguel, where a variety of Spanish delicacies await to tantalize your palate.
+d. Fiesta de San Isidro: Join the lively celebrations as Madrileños honor their patron saint, San Isidro, with a colorful festival featuring music, dancing, and traditional Spanish festivities.
+
+Three Main Stories to Appear on Tiles:
+a. Retiro Park: A Tranquil Oasis in the Heart of Madrid: Escape the bustling city and relax in the serene surroundings of Retiro Park, where you can row a boat on the lake or enjoy a leisurely stroll amid lush greenery.
+b. Madrid's Cultural Extravaganza: Immerse yourself in Madrid's vibrant cultural scene, from world-class art museums like the Reina Sofia to captivating theater performances at Teatro Real.
+c. Exploring La Latina: The Historic Heart of Madrid: Take a walk through La Latina, Madrid's historic neighborhood known for its charming streets, tapas bars, and cultural heritage.
+`
+
+const parsedData = responseParser(updateResponseText);
 
 // 'parsedData' now contains an array of objects, each representing a title and its descriptions
 console.log(parsedData);
 
-*/
+// */

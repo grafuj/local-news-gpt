@@ -57,10 +57,26 @@ function generatePrompt(city) {
   return `I'm looking to make a new homepage for a city. I've got a number of categories that I'm hoping to fill for content for the webpage.
   please generate the following content for the city of: ${capitalizedCity}
 
-  Since this is going to be placed into a webpage, I'm hoping you can place the result in a numbered list that is plain text (not code) and uses the form a, b, c and a, b, c
+  Please make the content in this exact format:
+  
+  Four New Stories for Paris:
+  a. Paris Fashion Week Unveils Latest Trends: Get ready to be mesmerized by the world of fashion as Paris Fashion Week showcases the latest haute couture creations.
+  b. New Art Exhibition at the Louvre: Explore the artistic wonders of the Louvre Museum with a new and captivating exhibition that brings history to life.
+  c. Parisian Cuisine at Its Finest: Savor the exquisite flavors of Paris with the opening of a Michelin-starred restaurant that promises a gastronomic journey.
+  d. Celebrating Bastille Day in Style: Join the festive atmosphere as Parisians celebrate Bastille Day with fireworks, parades, and cultural events.
+  
+  Three Main Stories to Appear on Tiles:
+  a. Seine River Cruises: A Romantic Escape: Experience the romance of Paris by embarking on a scenic cruise along the Seine River, taking in the city's enchanting skyline.
+  b. Parisian Arts and Culture: Immerse yourself in Paris's rich cultural scene, from world-class art galleries to captivating theatrical performances.
+  c. Exploring Montmartre: The Bohemian Heart of Paris: Take a stroll through Montmartre, the charming and artistic neighborhood known for its vibrant history and picturesque streets.
+  `;
 
-  - four new stories
-  - three main stories to appear on tiles
+
+  /*
+  Since this is going to be placed into a webpage, I'm hoping you can place the result in a numbered list that is plain text (not code).
+
+  - four new stories (a, b, c, d)
+  - three main stories to appear on tiles (a, b, c)
 
   Here is an example for Madrid:
 
@@ -72,7 +88,7 @@ function generatePrompt(city) {
     a. Culinary Delights of Madrid: Indulge in the diverse culinary scene of Madrid, from traditional tapas to innovative fusion cuisine.
     b. Prado Museum: A Treasure Trove of Art: Explore the world-renowned Prado Museum, home to an impressive collection of European art masterpieces.
     c. Retiro Park: Urban Retreat in Madrid: Discover the beauty of Retiro Park, a tranquil urban retreat in the heart of Madrid, perfect for picnics and relaxation.
-  `;
+    */
 
   //   return `Suggest three names for an animal that is a superhero.
 

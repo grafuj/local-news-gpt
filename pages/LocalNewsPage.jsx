@@ -5,7 +5,7 @@ import styles from "./index.module.css";
 export const LocalNewsPage = (props) => {
   const { LNPCityInput, LNPResult } = props;
   console.log("7 LocalNewsPage: city, res", LNPCityInput, LNPResult);
-  // <LocalNewsPage LNPCityInput={newsCityInput} LNPResult={newsResult} />
+  // <LocalNewsPage LNPCityInput={newsCityInput} LNPResult={newsResult} /> //making sure the props passed in are destructured properly
 
   return (
     <>
