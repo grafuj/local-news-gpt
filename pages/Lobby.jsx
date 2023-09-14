@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
 import Link from 'next/link';
 import styles from "./index.module.css";
 import { useRouter } from "next/router";
 import { responseParser } from "./api/responseParser";
+import { useNewsContext } from './NewsContext';
 
-export const Lobby = (props) => {
-  const { cityInput, setCityInput, result, setResult } = props;
+export const Lobby = () => {
+  const { cityInput, setCityInput, result, setResult } = useNewsContext();
+
   // console.log("props:", props)
   const router = useRouter();
 

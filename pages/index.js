@@ -18,9 +18,11 @@ export default function Home() {
 
   let pageComponent;
   if (query.page === "News") {
-    pageComponent = <News newsCityInput={cityInput} newsResult={result} />;
+    // pageComponent = <News newsCityInput={cityInput} newsResult={result} />;
+    pageComponent = <News />;
   } else {
-    pageComponent = <Lobby cityInput={cityInput} setCityInput={setCityInput} result={result} setResult={setResult} />;
+    // pageComponent = <Lobby cityInput={cityInput} setCityInput={setCityInput} result={result} setResult={setResult} />;
+    pageComponent = <Lobby />;
   }
 
   return (

@@ -1,10 +1,11 @@
 import React from "react"; // Import React
 import Head from "next/head"; // Import Next.js's Head component
 import styles from "./index.module.css";
+import { useNewsContext } from "./NewsContext";
 
 export const LocalNewsPage = (props) => {
   // console.log("props:", props)
-  const { LNPCityInput, LNPResult } = props;
+  const { LNPCityInput, LNPResult } = useNewsContext;
   console.log("7 LocalNewsPage: city, res", LNPCityInput, LNPResult);
   // <LocalNewsPage LNPCityInput={newsCityInput} LNPResult={newsResult} /> //making sure the props passed in properly
 
