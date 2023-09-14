@@ -2,7 +2,7 @@
 export const responseParser = (responseText) => {
   // Split the response into an array of lines
   const lines = responseText.split('\n');
-  console.log("lines:", lines)
+  // console.log("lines:", lines)
   // Initialize an array to store the parsed data
   const parsedData = [];
 
