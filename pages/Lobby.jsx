@@ -6,7 +6,7 @@ import { responseParser } from "./api/responseParser";
 
 export const Lobby = (props) => {
   const { cityInput, setCityInput, result, setResult } = props;
-  console.log("props:", props)
+  // console.log("props:", props)
   const router = useRouter();
 
   async function onSubmit(event) {

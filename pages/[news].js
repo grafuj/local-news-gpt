@@ -4,7 +4,7 @@ import { LocalNewsPage } from "./LocalNewsPage";
 export default function News(props) {
   const { newsCityInput, newsResult } = props;
   const [isLoading, setIsLoading] = useState(true);
-  console.log("7 [news]: city, res", newsCityInput, newsResult);
+  // console.log("7 [news]: city, res", newsCityInput, newsResult);
 
 
   useEffect(() => {
