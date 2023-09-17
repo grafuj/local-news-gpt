@@ -11,7 +11,7 @@ export default function News(props) {
     // Simulate a 1500ms delay
     const delay = setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 2000);
 
     return () => {
       // Clear the timeout if the component unmounts

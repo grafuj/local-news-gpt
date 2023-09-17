@@ -8,7 +8,7 @@ export const Lobby = (props) => {
   const { cityInput, setCityInput, result, setResult } = props;
   const router = useRouter();
 
-  const onSubmit = async (event) => {
+    const onSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await fetch("/api/generateCity", {
@@ -23,30 +23,29 @@ export const Lobby = (props) => {
       if (response.status !== 200) {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
-      console.log("data26:", data); //data is there
+      console.log("data26:", data.result); //data is there
       console.log("parsed data27:", responseParser(data.result)); //data is correctly parsed
 
       setResult(responseParser(data.result)); // this line doesn't work
-      console.log("result30:", result);
-
+      // console.log("result30:", result);
 
       setTimeout(() => {  //this is an attempt at delaying setResult so that it eventually gets set or to find out if a later console.log is different
         // setResult(responseParser(data.result)); //this doesn't work
         console.log("result35:", result);
-        // router.push('/News'); //checking if staying on the page for longer fixes the problem
+        router.push('/News'); //checking if staying on the page for longer fixes the problem
       }, 2000);
 
     } catch (error) {
       console.error(error);
       alert(error.message);
     }
-  }
+  };
 
   return (
     <main className={styles.main}>
       <img src="/dog.png" className={styles.icon} />
       <h3>Enter a City</h3>
-      <form onSubmit={() => onSubmit}>
+      <form onSubmit={onSubmit}>
         <input
           type="text"
           name="city"
@@ -54,9 +53,9 @@ export const Lobby = (props) => {
           value={cityInput}
           onChange={(e) => setCityInput(e.target.value)}
         />
-        <Link href="/News">
+        {/* <Link href="/News"> */}
         <button type="submit">Generate</button>
-        </Link>
+        {/* </Link> */}
       </form>
     </main>
   );

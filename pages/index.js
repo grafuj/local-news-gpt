@@ -10,17 +10,19 @@ import News from "./[news]";
 
 export default function Home() {
   const [cityInput, setCityInput] = useState("");
-  const [result, setResult] = useState();
+  const [result, setResult] = useState([{}]);
 
   const router = useRouter();
   const { query } = router;
 
-  let pageComponent;
-  if (query.page === "News") {
-    pageComponent = <News newsCityInput={cityInput} newsResult={result} />;
-  } else {
-    pageComponent = <Lobby cityInput={cityInput} setCityInput={setCityInput} result={result} setResult={setResult} />;
-  }
+  const pageComponent = () => {
+    if (query.page === "News") {
+      console.log("line20: index going to  [news]: city, res", cityInput, result);
+      // return <News newsCityInput={cityInput} newsResult={result} />;
+    } else {
+      return <Lobby cityInput={cityInput} setCityInput={setCityInput} result={result} setResult={setResult} />;
+    }
+  };
 
   return (
     <div>
@@ -28,7 +30,7 @@ export default function Home() {
         <title>Local News GPT</title>
         <link rel="icon" href="/dog.png" />
       </Head>
-      {pageComponent}
+      {pageComponent()}
       {/* {result && result[0].title} */}
     </div>
   );
